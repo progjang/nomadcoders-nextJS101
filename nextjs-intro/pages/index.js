@@ -1,10 +1,8 @@
-import {useState} from "react";
-import NavBar from "../components/NavBar";
+import { useState } from "react";
 export default function Home() {
-    return (
-        <div>
-            <NavBar />
-            <h4>Home</h4>
-        </div>
-    )
+  return (
+    <div>
+      <h4>Home</h4>
+    </div>
+  );
 }

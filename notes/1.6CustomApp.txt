@@ -1,0 +1,39 @@
+Global styles 사용법
+
+<styled jsx>는 사용된 컴포넌트에만 적용된다.
+삽입된 컴포넌트 (ex. <NavBar /> inside of <Home>)에도 적용 안됨
+
+<style jsx global>{``}</style> 형태로 사용하면 됨
+<Home>컴포넌트 내부의 <NavBar />에도 적용됨 but <About>과 같이
+다른 page 에서는 <Home>과 같이 넣어줘야 함 (페이지별로 생각해야 함)
+=> 결국 아래와 같은 styled jsx 구문을 index.js와 about.js에 copy&paste 해야한다는 것
+<style jsx global>{`
+    a {
+        color: white;
+    }
+`}</style>
+
+🔥이런 불편함을 극복해보자 (모든 페이지를 커스텀할 장소 blue print는?)
+=> App Component를 커스텀하면 됨 (pages/_app.js)
+
+# 렌더링 과정
+(1) NextJS가 About page를 랜더링 하려고 할 경우
+(2) NextJS가 두 개의 프롭(Component:<여기서는 About>, pageProps)을 넣어서 _app.js의 default 컴포넌트를 호출함
+(3) 아래가 _app.js기본구조
++ pages/_app.js
+export default function App({Component, pageProps}){
+    return 
+        <>
+            <NavBar />
+            <Component {...pageProps} />;
+            <style jsx global>{`
+                a {
+                    color: white;
+                }
+            `}</style>
+        </>
+}
+이제 styles/globals.css 를 _app.js파일에 넣을 수 있음
+import "../styles/globals.css";
+🔥 css파일을 임포트할 수 있는 곳은 only _app.js, 다른 파일에 넣으면 error
+
