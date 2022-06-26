@@ -1,0 +1,41 @@
++ _app.js
+App({Component, pageProps}) 에서 pageProps는 나중에 다시 보게 될 것
+
+여기서는 일반적으로 사용되는 pattern을 본다.
+
++component/Layout.js
+* children 프롭은 아래와 같이 컴포넌트에 다른 컴포넌트를 넣을 때 사용한다.
+export default function Layout({children}) {
+    return(
+        <>
+        <NavBar />
+        <div>{children}</div>
+        </>
+    );
+}
+
+=>
++ _app.js에서 🔥<Layout><Component {...pageProps} /></Layout> 형태로 사용
+
++ index.js 에서 <Head>컴포넌트 사용 (import Head from "next/head")
+*create-react-app 이었다면 react-helmet 같은 걸 다운로드 했을 것
+*아래와 같이 사용
+<Head><title>Home|Next Movies</title></Head>
+
+🔥 모든 페이지에서 사용할 수 있는 <Seo title={} /> 컴포넌트 만들자.
++ components/Seo.js
+export default function Seo({title}){
+    return (
+        <Head>{title} | Next Movies</Head>
+    );
+}
++ index.js에서 <Seo>컴포넌트 사용하기
+<Seo title="home" />
+
+
+
+
+
+ 
+
+
