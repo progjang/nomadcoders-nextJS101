@@ -1,0 +1,35 @@
+nextJS 어플리케이션에 CSS를 추가하는 몇가지 방법을 소개
+
+1) <a style={{}}> : <NavBar>에서 했듯이 style 속성에 객체를 이용하는 방법
+2) modules.css 사용
++ NavBar.module.css 생성 (module.css 가 중요, NavBar명은 다른 이름이어도 무방함)
+css 내용 입력
+.nav {
+    ....
+}
+.link {
+    text-decoration: none;
+}
+.active {
+    ...
+}
+
++ NavBar.js 에서
+import styles from "./NavBar.module.css";
+- 자바스크립트 오브젝트의 프로퍼티 형식으로 클래스네임을 적어야 한다.
+ X <a className="nav">
+ O <a className={styles.nav}>
+ - css 모듈이 클래스명을 랜덤화 하여 지정해서 소스에 보면 <nav class="NavBar_nav_9Biy0">...</nav> 와 같이 만들어짐(충돌우려 사라짐)
+ - 조건이 있을 경우
+ <a className={router.pathname === "/" ? styles.active : ""}>Home</a>
+ - 상시 + 조건부삽입 클래스명 쓸 경우는 문자열 만들어줌 (아래 둘 다  사용 가능한 구문임)
+ O <a className={`${styled.link} ${router.pathname === "/" ? styles.active : ""}`}>Home</a> 
+   -> ${} 인터폴레이션?
+ O <a className={[styled.link, router.pathname === "/" ? styles.active : ""].join(" ")}>Home</a>
+--------------------------------------------------
+니콜라스는 이런 module.css 구조를 권장하지 않는다.
+파일이 두 개라서 클래스명 확인이 용이하지 않고,
+클래스명 여러개 있을 때 특히 조건부삽입과 같이 사용하기 복잡함
+
+
+3) <style jsx> 사용
