@@ -1,0 +1,12 @@
+>npx create-next-app@latest <--typescript| 여기서는 사용하지 않음>
+what is your project named? nextjs-intro
+
++ README.md 수정
+모두 삭제 후 (# NextJS Introduction)입력
+
++ package.json 살펴보고
+>npm run dev
+
+이후 영상에서 pages, styles, public 폴더 살펴볼 것
+
+
