@@ -1,0 +1,25 @@
+NextJS의 가장 좋은 기능 중 하나는 앱에 있는 페이지들이 pre rendering 된다는 것
+-> statically generated
+
+(1)create-react-app : client-side rendering 
+의미1: 요청한 HTML 소스코드에 내용이 들어있지 않다. <div id="root"></div> only
+의미2: react와 너의 코드(client side javascript)가 다운로드 되면 그 때 react가 랜더링해서 보여줌. 브라우저가 모든 UI를 생성
+
+개발자 도구의 Network 탭의 역삼각형(▼) 모양을 클릭한 후 Slow 3G로 변경하면 느린 인터넷 환경에서 사용하는 경우를 테스트해볼 수 있다.
+Slow 3G를 선택하면 페이지가 새로고침 되는 동안 흰 화면이 오래 보인다.
+
+(2)nextJS : pre rendering
+Seo, 구글검색엔진, 유저 모두에게 좋음
+<div><h1>About</h1>
+pre rendering 된 HTML을 먼저 볼 수 있다. 흰 화면이 아님(3G환경이나 자바스크립트가 비활성화된 상황에서도)
+API로드에는 시간이 걸림
+
++ pages/index.js (1씩 증가하는 카운터, 소스코드를 보면 초기상태를 활용해서 미리 랜더링된 걸 볼 수 있음)
+import {useState} from "react" 하고, 수정한 후 npm run dev 해서 다시 시작해야 함
+*** (중요) 서버 재시작 안하면 에러 뜨거나, 코드 반영이 안되서 헤맬 수 있음
+
+<div id="__next"><div><h4>Counter: <!-- -->0</h4><button>+</button></div></div>
+
+***중요
+step1. nextJS 가 브라우저에게 요청받은 컴포넌트를 react를 이용해 pre rendering -> html 생성
+step2. 브라우저가 html을 보여주고, react가 로딩되어 제어권을 가지게 되면 노말 어플리케이션이 되는 것
