@@ -1,0 +1,22 @@
++ components/NavBar.js 생성
+<NavBar />컴포넌트 작성
+home.js 와 about.js에 <NavBar /> 적용
+
+🔥 a tag는 사용하지 않는다 (lint 에러로 확인됨)
+- <a> tag는 페이지를 다시 읽게 됨
+- client side 랜덩링을 위해 🔥<Link href="~"> 사용함. reload 안해서 빨라짐 (import Link from "next/link")
+- <Link> 컴포넌트에는 href 속성만 사용할 수 있음, style={{color: red;}}, className="..." 같은 속성은
+a 태크에 사용 -> useRouter hOOK 과 연결해서 색상변경해봄  (import {useRouter} from "next/router")
+<Link href="/">
+    <a style={{color: router.pathname === "/" ? "red" : "blue"}}>Home</a>
+</Link>
+<Link href="/">
+    <a style={{color: router.pathname === "/about" ? "red" : "blue"}}>About</a>
+</Link>
+
+다음 영상에서는 style을 다루게 됨 (modules.js | styles JSX)
+
+
+
+
+
