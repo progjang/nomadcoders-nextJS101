@@ -1,0 +1,10 @@
+# url 라우팅에서 중요한 것은 폴더와 파일명(url이 됨), 컴포넌트명은 상관없음
+# 컴포넌트 함수는 항상 export default 해야 함
+-> export default function About(){}
+
+# JSX 작성한 파일명이 jsx일 필요없음, react 임포트 안해도 되고
+# useState, useEffect 와 같은 react 함수를 써야할 경우에만 react를 임포트 하면 됨
+
+정말 멋진 건 다음 영상에서 nextJS로 만든 웹사이트의 소스코드를 보면 알 수 있음
+
+
