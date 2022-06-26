@@ -1,0 +1,13 @@
++ pages 폴더 내에 있는 파일/폴더 모두 삭제
+> mkdir pages/index.js
++index.js 아래와 같이 작성 후 테스트
+export default function Home() {
+    return "hi";
+}
+
+프레임워크는 너의 코드를 콜 한다. 라이브러리는 우리가 필요할 때 불러쓰는 것과 비교된다.
+라우팅 신경 쓸 필요없음. 올바른 위치(pages/)에 코드를 넣어두면 되는 구조임
+
+
+
+

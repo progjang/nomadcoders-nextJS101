@@ -5,6 +5,7 @@ what is your project named? nextjs-intro
 모두 삭제 후 (# NextJS Introduction)입력
 
 + package.json 살펴보고
+>cd nextjs-intro
 >npm run dev
 
 이후 영상에서 pages, styles, public 폴더 살펴볼 것
