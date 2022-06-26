@@ -1,0 +1,26 @@
+# styled jsx
+
+application 에 css를 사용하는 방법(🔥NextJS 고유의 방법)
+<style></style> => nomal html tag인데 jsx 프롭을 더하고,
+<style jsx>{``}</style> 형태로 사용
+
+<nav>
+    <Link> <a></a></Link>
+    <style jsx>{`
+        nav {
+            ...
+        }
+        a {
+            text-decoration: none;
+        }
+    `}
+    </style>
+</nav>
+
+=> 코드를 보면 class명이 훨씬 weird (충돌방지)
+=> import 해야할 것도 없음
+=> 사용된 컴포넌트 자신에게만 적용된다.
+
+🔥특정 컴포넌트에서가 아닌 글로벌하게 적용하는 방법은
+다음 강의에서 (reset.css, font-family 같은 것들 사용하려면 필요)
+

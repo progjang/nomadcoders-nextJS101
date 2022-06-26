@@ -1,6 +1,7 @@
-nextJS 어플리케이션에 CSS를 추가하는 몇가지 방법을 소개
+# nextJS 어플리케이션에 CSS를 추가하는 몇가지 방법을 소개
 
 1) <a style={{}}> : <NavBar>에서 했듯이 style 속성에 객체를 이용하는 방법
+
 2) modules.css 사용
 + NavBar.module.css 생성 (module.css 가 중요, NavBar명은 다른 이름이어도 무방함)
 css 내용 입력
@@ -32,4 +33,4 @@ import styles from "./NavBar.module.css";
 클래스명 여러개 있을 때 특히 조건부삽입과 같이 사용하기 복잡함
 
 
-3) <style jsx> 사용
+3) 다음 영상에서 사용할 styled-jsx <style jsx> 사용
